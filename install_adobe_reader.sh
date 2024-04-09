@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script para instalar acrobe reader en Ubuntu 18.04/20.04
+# Script para instalar acrobe reader en Ubuntu 22.04/24.04
 
 #Colores
 redColor="\e[0;31m\033[1m"
