@@ -1,0 +1,80 @@
+--  Script modificado x Alejo Costa A/2024
+
+conky.config = {
+    alignment = 'top_right',
+    background = true,
+    border_width = 0,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'DejaVu Sans Mono:size=9',
+    gap_x = 20,
+    gap_y = 350,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window_transparent = yes,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'normal',
+    own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+}
+
+--color0= white,
+--color1 green,
+--color2 cyan,
+--color3 grey,
+--color4 yellow,
+-- colorlinea= #1359db
+
+
+
+conky.text = [[
+#${image /alsina/tapiz.png -p 100,200 -s   100x100}   
+${color #1359db}${voffset -5}${hr}
+${color yellow}Usuario:   ${color cyan}${alignr}${exec whoami}
+${color yellow}Uptime:    ${color cyan}${alignr}$uptime
+${color #1359db}${voffset -5}${hr}
+#${image /alsina/tapiz.png -p 100,200 -s   100x100}
+${color yellow}Voucher: ${color white}${alignr}${execi 100 cat /alsina/Notilinux.txt}
+${color #1359db}${voffset -5}${hr}
+${color yellow}Nombre PC: ${color cyan}${alignr}$nodename
+${color yellow}IP:        ${color cyan}${alignr}${execi 100    ifconfig | grep "inet 10." | cut -c14-24}
+${color #1359db}${voffset -5}${hr}
+${color yellow}Sistema:   ${color cyan}${alignr}${sysname}_${exec [ -d /sys/firmware/efi ] && echo "UEFI" || echo "Legacy"}
+${color yellow}O.S.linux: ${color cyan}${alignr}${execi 1000 
+cat /etc/lsb-release | grep "DISTRIB_DESCRIPTION=" | cut -c21-42}
+${color yellow}Version:   ${color white}${alignr}${execi 10000 cat /alsina/Num.ver}
+#${color yellow}Ocs:       ${color cyan}${alignr}${execi 10000   ocsinventory-agent --version | cut -c56-60}
+${color #1359db}${voffset -5}${hr}
+${color yellow}Cpu:     ${alignr}${color cyan}$cpu % ${cpugraph  10,50 ff0000 ff00ff}
+${color yellow}Memoria: ${alignr}${color cyan}$mem/$memmax ${memgraph  10,50 ff0000 }
+#${color #1359db}${voffset -5}${hr}
+#${color yellow}Swap: ${alignr}${color cyan}$swap/$swapmax
+#${color yellow}Disco: ${alignr}${color cyan}${fs_used /}/${fs_size /} 
+${color #1359db}${voffset -5}${hr}
+${color yellow}Impresoras:${color cyan}${alignr} ${exec lpstat -v |grep "10." | cut -c40-45}
+${color #1359db}${voffset -5}${hr}
+${color yellow}Contacto:${scroll 25 ${color white}Soporte.alsina465@Cultura.gob.ar }
+${color #1359db}${voffset -5}${hr}
+${color white}${alignc}${font Comic Sans MS:pixelsize=40}Alsina 465
+]]

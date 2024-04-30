@@ -1,5 +1,5 @@
  #!/bin/bash
-# Script modificado x Alsina465 A/2024
+# Script modificado x Alejo Costa 05/2024
 clear
 if [ $(id -u) -eq 0 ]; then
 echo "Hostname Actual:" 
