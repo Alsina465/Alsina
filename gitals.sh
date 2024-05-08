@@ -1,6 +1,6 @@
 cd /
-rm -R /Als
+rm -R /als
 sudo git clone http://github.com/Alsina465/als.git
-cd /Als
+cd /als
 chmod +x *.sh
 
